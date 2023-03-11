@@ -1,16 +1,11 @@
+import { FeedbackButtons } from './feedbackControls/buttons/buttons';
+import { FeedbackControls } from './feedbackControls/feedbackControls';
+import { Container } from './container/container.styled';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Container>
+      <FeedbackControls />
+    </Container>
   );
 };
