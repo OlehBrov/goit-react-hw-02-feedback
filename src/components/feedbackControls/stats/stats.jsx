@@ -1,18 +1,24 @@
 import { PieChart } from 'react-minimal-pie-chart';
-import {StatsStyled} from './stats.styled';
+import { StatsStyled } from './stats.styled';
+
 
 export const Stats = ({ state }) => {
-  return (
+
+  return ( 
+    console.log('Stats', state.good),
+    
     <StatsStyled>
       <PieChart
         data={makeData(state)}
-        label={({ dataEntry }) => {
-          if (dataEntry.percentage !== 0)
+        label={(labelRenderProps) => {
+          console.log('makeData', makeData(state))
+          console.log('dataEntry', labelRenderProps)
+          if (labelRenderProps.dataEntry.percentage !== 0)
             return (
-              dataEntry.title +
+              labelRenderProps.dataEntry.title +
               ' ' +
-              (Math.round(dataEntry.percentage) > 0
-                ? Math.round(dataEntry.percentage) + '%'
+              (Math.round(labelRenderProps.dataEntry.percentage) > 0
+                ? Math.round(labelRenderProps.dataEntry.percentage) + '%'
                 : '')
             );
         }}
@@ -26,8 +32,13 @@ export const Stats = ({ state }) => {
 };
 
 function makeData(state) {
- 
-  return Object.entries(state).map(([title, value]) => ({
+  console.log('in make func', state)
+  let newState = {
+    good: state.good,
+    neutral: state.neutral,
+    bad: state.bad,
+  }
+  return Object.entries(newState).map(([title, value]) => ({
     title,
     value,
     color: addColor(title),
@@ -42,3 +53,4 @@ function addColor(title) {
   }
   return '#fc0303';
 }
+
