@@ -1,20 +1,32 @@
+import styled from "styled-components";
+
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
-    <div>
-      <button type="button" name="good" label="good" onClick={onLeaveFeedback}>
+    <ButtonsWrap>
+      <FeedbackButton type="button" name="good" label="good" onClick={onLeaveFeedback}>
         Good
-      </button>
-      <button
+      </FeedbackButton>
+      <FeedbackButton
         type="submit"
         name="neutral"
         label="neutral"
         onClick={onLeaveFeedback}
       >
         Neutral
-      </button>
-      <button type="submit" name="bad" label="bad" onClick={onLeaveFeedback}>
+      </FeedbackButton>
+      <FeedbackButton type="submit" name="bad" label="bad" onClick={onLeaveFeedback}>
         Bad
-      </button>
-    </div>
+      </FeedbackButton>
+    </ButtonsWrap>
   );
 };
+
+const ButtonsWrap = styled.div`
+  width: 100%;
+`
+const FeedbackButton = styled.button`
+  width: calc((90%)/3);
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 24px;
+`

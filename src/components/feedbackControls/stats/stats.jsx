@@ -5,14 +5,13 @@ import { StatsStyled } from './stats.styled';
 export const Stats = ({ state }) => {
 
   return ( 
-    console.log('Stats', state.good),
+    
     
     <StatsStyled>
       <PieChart
         data={makeData(state)}
         label={(labelRenderProps) => {
-          console.log('makeData', makeData(state))
-          console.log('dataEntry', labelRenderProps)
+
           if (labelRenderProps.dataEntry.percentage !== 0)
             return (
               labelRenderProps.dataEntry.title +
@@ -32,7 +31,7 @@ export const Stats = ({ state }) => {
 };
 
 function makeData(state) {
-  console.log('in make func', state)
+
   let newState = {
     good: state.good,
     neutral: state.neutral,
